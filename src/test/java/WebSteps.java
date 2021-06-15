@@ -16,7 +16,6 @@ public class WebSteps {
 
     @Step ("Ищем репозиторий {repository}")
     public void searchForRepository (String repository) {
-        $("[name=q]").click();
         $("[name=q]").setValue(repository).pressEnter();
     }
 
@@ -32,7 +31,7 @@ public class WebSteps {
 
     @Step ("Проверяем, что Issue с номером {number} существует")
     public void shouldSeeIssueWithNumber(int number) {
-        $(withText("#" + number)).should((Condition.exist));
+        $(withText("#" + number)).should((Condition.visible));
     }
 
 }

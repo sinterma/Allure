@@ -25,7 +25,6 @@ public void testIssueSearch () {
     });
     step("Ищем репозиторий" + REPOSITORY, (s) -> {
         s.parameter("repository", REPOSITORY);
-        $("[name=q]").click();
         $("[name=q]").setValue(REPOSITORY).pressEnter();
     });
     step("Переходим в репозиторий" + REPOSITORY,(s) -> {
@@ -37,7 +36,7 @@ public void testIssueSearch () {
     });
     step("Проверяем, что Issue с номером" + ISSUE_NUMBER + "существует", (s) -> {
         s.parameter("number", ISSUE_NUMBER);
-        $(withText("#68")).should((Condition.exist));
+        $(withText("#68")).should((Condition.visible));
     });
 
     }

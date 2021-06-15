@@ -17,11 +17,10 @@ public class SelenideTest {
         SelenideLogger.addListener("allure",new AllureSelenide());
 
         open("https://github.com");
-        $("[name=q]").click();
         $("[name=q]").setValue("eroshenkoam/allure-example").pressEnter();
         $(By.linkText("eroshenkoam/allure-example")).click();
         $(byText("Issues")).click();
-        $(withText("#68")).should((Condition.exist));
+        $(withText("#68")).should((Condition.visible));
 
     }
 
